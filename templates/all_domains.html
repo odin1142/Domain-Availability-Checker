@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Domains</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/dataTables.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+<body>
+    <div class="nav-links">
+        <a href="/">Domain Generator</a> 
+        <a href="/favorites">View Favorites</a> 
+        <a href="/all_domains">View All Domains</a>
+    </div>
+    <table id="domainsTable" class="display">
+        <thead>
+            <tr>
+                <th>Domain Name</th>
+                <th>Availability</th>
+                <th>Favorited</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for domain in all_domains %}
+            <tr>
+                <!-- First column of table -->
+                <td>{{ domain.name }}</td>
+                <!-- Second column of table -->
+                <td class="{{ 'status-available' if domain.available else 'status-unavailable' }}">
+                    {{ 'Available' if domain.available else 'Unavailable' }}
+                </td>
+                <!-- Third column of table -->
+                <td class="favorite-star" data-domain="{{ domain.name }}">
+                    <!-- Use a star icon for favoriting, toggle based on domain['favorited'] status -->
+                        {{ '★' if domain.favorite else '☆' }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='scripts/jquery-3.7.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/datatables.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+</body>
+</html>

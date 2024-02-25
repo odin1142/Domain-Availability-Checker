@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+    background-color: #f0f2f5;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+h1 {
+    color: #333;
+}
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Ensures padding does not affect overall width */
+}
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.status-available {
+    color: #28a745;
+}
+.status-unavailable {
+    color: #dc3545;
+}
+
+.favorite-star {
+    cursor: pointer;
+    margin-left: 10px;
+    user-select: none; /* Prevents the text from being selected */
+}
+
+.favorite-star:hover, .favorite-star.favorited {
+    color: gold; /* Change color on hover or when favorited */
+}
+
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+        padding: 10px;
+    }
+}
+
+/* Navigation Links */
+.nav-links {
+    background-color: #b6cdde; /* Light background for a clean look */
+    box-shadow: 0 2px 5px rgba(41, 34, 34, 0.581); /* Subtle shadow for depth */
+    padding: 15px 20px; /* Spacious padding for a better layout */
+    display: flex; /* Use flexbox for better alignment and spacing */
+    align-items: center; /* Align items vertically */
+    justify-content: flex-start; /* Align nav items to the left */
+    margin-bottom: 20px; /* Space between nav and content */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333; /* Darker text for contrast */
+    margin-right: 25px; /* Space between links */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-links a:hover, .nav-links a:focus {
+    color: #007bff; /* Highlight color for interactivity */
+    text-decoration: none;
+}
+

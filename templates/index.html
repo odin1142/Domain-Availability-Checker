@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Generator & Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+
+</head>
+<body>
+    <div class="nav-links">
+        <a href="/">Domain Generator</a> 
+        <a href="/favorites">View Favorites</a> 
+        <a href="/all_domains">View All Domains</a>
+    </div>
+
+    <h1>Domain Generator & Availability Checker</h1>
+    <form method="POST">
+        <input type="text" name="domain_prefix" placeholder="Prefix (optional)">
+        <input type="text" name="domain_suffix" placeholder="Suffix (optional)">
+        <input type="text" name="must_contain" placeholder="Must contain substrings (comma-separated)">
+        <input type="text" name="exclude" placeholder="Exclude substrings (comma-separated)">
+        <input type="number" name="length" placeholder="Max Length" min="5" max="30">
+        <input type="number" name="num_results" placeholder="Number of Results" min="1" max="50">
+        <button type="submit">Generate and Check</button>
+    </form>
+
+{% if results %}
+    <h2>Generated Domains:</h2>
+    <ul>
+    {% for domain, available in results %}
+        <li>
+            {{ domain }} - 
+            <span class="{{ 'status-available' if available else 'status-unavailable' }}">
+                {{ 'Available' if available else 'Unavailable' }}
+            </span>
+            <span class="favorite-star" data-domain="{{ domain }}">☆</span> <!-- Unfilled star -->
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+    
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+</body>
+</html>

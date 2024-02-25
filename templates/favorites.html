@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorited Domains</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+
+</head>
+<body>
+    <div class="nav-links">
+        <a href="/">Domain Generator</a> 
+        <a href="/favorites">View Favorites</a> 
+        <a href="/all_domains">View All Domains</a>
+    </div>
+
+    <h1>Favorited Domains</h1>
+    {% if favorites %}
+    <ul>
+    {% for domain in favorites %}
+        <li>
+            {{ domain[0] }} <!-- Adjust as needed based on your data structure -->
+            <span class="favorite-star" style='color: gold' data-domain="{{ domain[0] }}">★</span>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No domains have been favorited yet.</p>
+{% endif %}
+
+<script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+</body>
+
+</html>
