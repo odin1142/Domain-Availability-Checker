@@ -1,3 +1,4 @@
 env/
 *.db
 env.sh
+static/styles/dataTables.dataTables.min.css
